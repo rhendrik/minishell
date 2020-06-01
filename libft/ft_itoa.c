@@ -6,7 +6,7 @@
 /*   By: rhendrik <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/14 09:06:38 by rhendrik          #+#    #+#             */
-/*   Updated: 2019/07/09 09:35:15 by rhendrik         ###   ########.fr       */
+/*   Updated: 2019/07/22 08:48:41 by rhendrik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,9 @@ char		*ft_itoa(int n)
 	n_cpy = n;
 	strlen = l_strlen(n);
 	if (n == INTMIN)
-		return (MINSTR);
+	{
+		return (ft_strdup(MINSTR));
+	}
 	if (n == INTMAX)
 		return (MAXSTR);
 	if (n < 0)
