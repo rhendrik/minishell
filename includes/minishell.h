@@ -10,4 +10,6 @@
 # include <readline/readline.h>
 # include <readline/history.h>
 
+void mini_loop(void);
+
 #endif
