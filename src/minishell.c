@@ -3,7 +3,7 @@
 
 void print_prompt(void)
 {
-	ft_putstr("\\n||m:");
+	ft_putstr("i hate u: ");
 }
 
 void mini_loop(void)
@@ -20,10 +20,20 @@ void mini_loop(void)
 	print_prompt();	
 
 	//read line
-	get_next_line(0, &line);
 	
-	//set args
-	set_args(line);	
+	if(!get_next_line(0, &line))
+	{
+		ft_putchar('\n');
+		continue;
+	}
+	else 	
+	{
+		//set args
+		if(ft_strcmp(line, "") == 0)
+			continue;	
+		else
+			set_args(line);
+	}
 	//set statu
 	} while (status);
 	
@@ -32,8 +42,6 @@ void mini_loop(void)
 
 int main(void)
 {
-	// load config files
-	
 	//run command loop
 	
 	mini_loop();
