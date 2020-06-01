@@ -55,6 +55,8 @@ char                    **ft_w_split(const char *s)
         if (!s || !(ret = (char **)malloc(sizeof(*ret) *
                 (ft_countwords(s) + 1))))
                 return (NULL);
+	if(ft_countwords(s) == 0)
+		return (NULL);
         i = -1;
         j = 0;
         while (++i < ft_countwords(s))

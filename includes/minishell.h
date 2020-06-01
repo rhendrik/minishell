@@ -13,6 +13,6 @@
 
 void mini_loop(void);
 int set_args(char *line);
-char                    **ft_w_split(const char *s);
+char **ft_w_split(const char *s);
 
 #endif

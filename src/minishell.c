@@ -32,7 +32,8 @@ void mini_loop(void)
 		if(ft_strcmp(line, "") == 0)
 			continue;	
 		else
-			set_args(line);
+			if(set_args(line) == -1)
+				status = 0;
 	}
 	//set statu
 	} while (status);
