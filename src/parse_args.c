@@ -7,6 +7,7 @@ int val_flags(char **args)
 {
 	int i;
 	int j;
+	char cwd[1024];
 
 	i = 0;
 	j = 1;
@@ -21,6 +22,13 @@ int val_flags(char **args)
 				j++;
 			}
 			ft_putchar('\n');
+			return (1);
+		}
+		else if (ft_strcmp(args[i], "cd") == 0)
+			chdir(args[i + 1]);
+		else if (ft_strcmp(args[i], "pwd") == 0)
+		{
+			ft_putendl(getcwd(cwd, sizeof(cwd)));
 			return (1);
 		}
 		else if (ft_strcmp(args[i], "exit") == 0)
