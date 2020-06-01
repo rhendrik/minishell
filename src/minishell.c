@@ -3,7 +3,7 @@
 
 void print_prompt(void)
 {
-	ft_putstr("\\n||m:\n");
+	ft_putstr("\\n||m:");
 }
 
 void mini_loop(void)
@@ -21,12 +21,10 @@ void mini_loop(void)
 
 	//read line
 	get_next_line(0, &line);
-	ft_putendl(line);
 	
 	//set args
-	
+	set_args(line);	
 	//set statu
-	status = 0;
 	} while (status);
 	
 	// after do... while... free args and line
