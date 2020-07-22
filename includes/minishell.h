@@ -11,11 +11,18 @@
 # include <readline/readline.h>
 # include <readline/history.h>
 
-void mini_loop(void);
-int set_args(char *line);
-char **ft_w_split(const char *s);
-int exec_bin(char **args);
-int bin_com(char **args);
-char *find_command(char *bin_path);
+char    **global_env;
 
+
+void    mini_loop(void);
+int     set_args(char *line);
+char    **ft_w_split(const char *s);
+
+
+//environmnet
+void    get_env(char **env);
+int     env_len(char **env);
+
+//free
+void    free_env(char **env);
 #endif
