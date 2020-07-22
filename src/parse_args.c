@@ -15,13 +15,19 @@ int val_flags(char **args)
 	{
 		if(ft_strcmp(args[i], "echo") == 0)
 		{
-			while(args[i + j])
+			if(args[i + 1] != NULL)
 			{
-				ft_putstr(args[i + j]);
-				ft_putstr(" ");
-				j++;
+				while(args[i + j])
+				{
+					ft_putstr(args[i + j]);
+					ft_putstr(" ");
+					j++;
+				}
+				ft_putchar('\n');
+				return (1);
 			}
-			ft_putchar('\n');
+			else
+				ft_putchar('\n');
 			return (1);
 		}
 		else if (ft_strcmp(args[i], "cd") == 0)
@@ -60,4 +66,15 @@ int set_args(char *line)
 			return (-1);
 	}
 	return (0);
+}
+
+int exec_bin(char **args)
+{
+	if(ft_strcmp(args[0], ".") && (issame(args[1][0], '/') && issame(args[1][1], 'b')))
+	{
+		ft_putstr("yeah bitches\n");
+		return (1);
+	}
+	else 
+		return (0);
 }
