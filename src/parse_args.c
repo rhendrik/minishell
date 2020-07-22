@@ -39,6 +39,10 @@ int val_flags(char **args)
 		}
 		else if (ft_strcmp(args[i], "exit") == 0)
 			return(0);
+		else if(bin_com(args))
+		{
+			return (1);
+		}
 		else
 		{
 			ft_putstr("Sorry, ");
@@ -68,13 +72,13 @@ int set_args(char *line)
 	return (0);
 }
 
-int exec_bin(char **args)
+int bin_com(char **args)
 {
-	if(ft_strcmp(args[0], ".") && (issame(args[1][0], '/') && issame(args[1][1], 'b')))
+	if(args[0][0] == '/' && args[0][1] == 'b')
 	{
-		ft_putstr("yeah bitches\n");
+		ft_putendl("yeah bitches");
 		return (1);
 	}
-	else 
+	else
 		return (0);
 }

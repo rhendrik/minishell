@@ -15,5 +15,6 @@ void mini_loop(void);
 int set_args(char *line);
 char **ft_w_split(const char *s);
 int exec_bin(char **args);
+int bin_com(char **args);
 
 #endif
