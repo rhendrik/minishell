@@ -74,11 +74,29 @@ int set_args(char *line)
 
 int bin_com(char **args)
 {
+	char *command;
+	command = find_command(args[0]);
+	char *const argv[1024]= {command, NULL};
+	char *env[]={"PATH=/usr/local/sbin/:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games",NULL};
+
 	if(args[0][0] == '/' && args[0][1] == 'b')
 	{
-		ft_putendl("yeah bitches");
+		execve(args[0], argv, env);
 		return (1);
 	}
 	else
 		return (0);
+}
+
+char *find_command(char *bin_path)
+{
+	int i;
+	char *ret;
+
+	ret = ft_strnew(ft_strlen(bin_path));
+	i = ft_strlen(bin_path);
+	while(bin_path[i] != '/')
+		i--;
+	ret = ft_strcpy(ret, &bin_path[i + 1]);
+	return (ret);
 }
