@@ -32,8 +32,10 @@ void mini_loop(void)
 		if(ft_strcmp(line, "") == 0)
 			continue;	
 		else
-			if(set_args(line) == -1)
+			if(set_args(line) == -1){
 				status = 0;
+				free_env(global_env);
+			}
 	}
 	//set statu
 	} while (status);
@@ -41,8 +43,11 @@ void mini_loop(void)
 	// after do... while... free args and line
 }
 
-int main(void)
+int main(int argc, char **argv, char **env)
 {
+	(void)argc;
+	(void)argv;
+	get_env(env);
 	//run command loop
 	
 	mini_loop();
