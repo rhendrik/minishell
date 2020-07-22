@@ -46,7 +46,7 @@ void mini_loop(void)
 int main(int argc, char **argv, char **env)
 {
 	(void)argc;
-	(void)argv;
+	(void)argv	;
 	get_env(env);
 	//run command loop
 	

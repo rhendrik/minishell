@@ -33,6 +33,12 @@ int val_flags(char **args)
 		}
 		else if (ft_strcmp(args[i], "exit") == 0)
 			return(0);
+		else if(ft_strcmp(args[i], "env") == 0){
+			return(print_env());
+		}
+		else if(ft_strcmp(args[i], "setenv") == 0){
+			return(ft_setenv(args));
+		}
 		else
 		{
 			ft_putstr("Sorry, ");
