@@ -81,11 +81,17 @@ int bin_com(char **args)
 
 	if(args[0][0] == '/' && args[0][1] == 'b')
 	{
-		execve(args[0], argv, env);
-		return (1);
+		if (fork() == 0)
+		{
+			execve(args[0], argv, env);
+		}
+		else
+			return(1);
+		
 	}
 	else
-		return (0);
+		return (1);
+	return (1);
 }
 
 char *find_command(char *bin_path)
