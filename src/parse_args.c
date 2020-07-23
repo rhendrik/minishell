@@ -41,6 +41,7 @@ int val_flags(char **args)
 			return(0);
 		else if(bin_com(args))
 		{
+			ft_putendl("i hate u:");
 			return (1);
 		}
 		else
@@ -76,7 +77,7 @@ int bin_com(char **args)
 {
 	char *command;
 	command = find_command(args[0]);
-	char *const argv[1024]= {command, NULL};
+	char *const argv[1024]= {command, args[1]};
 	char *env[]={"PATH=/usr/local/sbin/:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games",NULL};
 
 	if(args[0][0] == '/' && args[0][1] == 'b')
@@ -86,7 +87,9 @@ int bin_com(char **args)
 			execve(args[0], argv, env);
 		}
 		else
+		{
 			return(1);
+		}
 		
 	}
 	else
