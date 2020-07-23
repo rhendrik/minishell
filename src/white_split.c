@@ -70,7 +70,7 @@ char                    **ft_w_split(const char *s)
                         ret[i][k++] = s[j++];
                 ret[i][k] = '\0';
         }
-        ret[i] = 0;
+        ret[i] = NULL;
         return (ret);
 }
                                                   

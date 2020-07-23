@@ -17,6 +17,9 @@ char    **global_env;
 void    mini_loop(void);
 int     set_args(char *line);
 char    **ft_w_split(const char *s);
+char *find_command(char *bin_path);
+int bin_com(char **args);
+int ec_echo( char **args, int i);
 
 
 //environmnet
