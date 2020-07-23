@@ -6,30 +6,13 @@
 int val_flags(char **args)
 {
 	int i;
-	int j;
 	char cwd[1024];
 
-	i = 0;
-	j = 1;
+	i=0;
 	while(args[i][0] != 0)
 	{
-		if(ft_strcmp(args[i], "echo") == 0)
-		{
-			if(args[i + 1] != NULL)
-			{
-				while(args[i + j])
-				{
-					ft_putstr(args[i + j]);
-					ft_putstr(" ");
-					j++;
-				}
-				ft_putchar('\n');
-				return (1);
-			}
-			else
-				ft_putchar('\n');
+		if(ec_echo(args, i))
 			return (1);
-		}
 		else if (ft_strcmp(args[i], "cd") == 0)
 			chdir(args[i + 1]);
 		else if (ft_strcmp(args[i], "pwd") == 0)
@@ -90,7 +73,7 @@ int bin_com(char **args)
 			wait(NULL);
 			return(1);
 		}
-		
+
 	}
 	else
 		return (1);
@@ -109,3 +92,44 @@ char *find_command(char *bin_path)
 	ret = ft_strcpy(ret, &bin_path[i + 1]);
 	return (ret);
 }
+
+int ec_echo( char **args, int i)
+{
+	int j;
+	int k;
+
+	j = 1;
+	k = 0;
+	(void)k;
+
+	if(ft_strcmp(args[i], "echo") == 0)
+	{
+		if(args[i + 1] != NULL)
+		{
+			while(args[i + j])
+			{
+				if(args[1][0] == '"' || (ft_strlen(args[i + j]) == '"' && args[i + j + 1] == NULL))
+				{
+					args[i+ j][ft_strlen(args[i + j]) - 1] = 0;
+					ft_putstr(&args[i + j][1]);
+					j++;
+					continue;
+				}
+				else 
+				{			
+					ft_putstr(args[i + j]);
+					ft_putstr(" ");
+					j++;
+
+				}
+
+			}
+		}
+		ft_putchar('\n');
+		return (1);
+	}
+	else
+		ft_putchar('\n');
+	return (0);
+}
+
