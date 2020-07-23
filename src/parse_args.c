@@ -76,8 +76,8 @@ int bin_com(char **args)
 
 	}
 	else
-		return (1);
-	return (1);
+		return (0);
+	return (0);
 }
 
 char *find_command(char *bin_path)
@@ -129,7 +129,7 @@ int ec_echo( char **args, int i)
 		return (1);
 	}
 	else
-		ft_putchar('\n');
+		return (0);
 	return (0);
 }
 
