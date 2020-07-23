@@ -41,7 +41,6 @@ int val_flags(char **args)
 			return(0);
 		else if(bin_com(args))
 		{
-			ft_putendl("i hate u:");
 			return (1);
 		}
 		else
@@ -88,6 +87,7 @@ int bin_com(char **args)
 		}
 		else
 		{
+			wait(NULL);
 			return(1);
 		}
 		
