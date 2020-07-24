@@ -26,7 +26,9 @@ int ec_echo( char **args, int i);
 void    get_env(char **env);
 int     env_len(char **env);
 void     print_env();
-int     ft_setenv(char **args);
+
 //free
 void    free_env(char **env);
+int     env_position(char *name);
+
 #endif

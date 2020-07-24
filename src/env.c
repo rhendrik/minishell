@@ -30,15 +30,3 @@ int  env_len(char **env){
         ft_putendl(global_env[x]); 
     }
  }
-
- int    ft_setenv(char **args) {
-     
-     if(!args[0]){
-         print_env();
-     }
-     if(args[1]){
-         ft_putendl(args[0]);
-         ft_putendl(args[1]);
-     }
-     return (1);
- }
