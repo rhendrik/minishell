@@ -27,6 +27,13 @@ void    get_env(char **env);
 int     env_len(char **env);
 void     print_env();
 int     ft_setenv(char **args);
+void   setenv_var(char *key, char *value);
+void ft_envVariable(char *name, char *new_value);
+char      **ft_renew_env(int re);
+int     env_position(char *name);
+
 //free
 void    free_env(char **env);
+int     env_position(char *name);
+
 #endif
