@@ -25,7 +25,10 @@ int ec_echo( char **args, int i);
 //environmnet
 void    get_env(char **env);
 int     env_len(char **env);
+void     print_env();
 
 //free
 void    free_env(char **env);
+int     env_position(char *name);
+
 #endif

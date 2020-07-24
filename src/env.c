@@ -7,10 +7,10 @@ void    get_env(char **env){
 
     x = 0;
     while (env[++x]){
-        printf("hello");
         if (!(global_env[x] = ft_strdup(env[x])))
             free_env(global_env);
         }
+    global_env[x] = NULL;
 }
 
 int  env_len(char **env){
@@ -20,3 +20,13 @@ int  env_len(char **env){
 		x++;
 	return (x);
 }
+
+ void print_env(){
+
+    int x = 0;
+
+    while (global_env[++x])
+    {
+        ft_putendl(global_env[x]); 
+    }
+ }

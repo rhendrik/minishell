@@ -22,6 +22,10 @@ int val_flags(char **args)
 		}
 		else if (ft_strcmp(args[i], "exit") == 0)
 			return(0);
+		else if(ft_strcmp(args[i], "env") == 0){
+			print_env();
+			return(1);
+		}
 		else if(bin_com(args))
 		{
 			return (1);
