@@ -27,7 +27,10 @@ int val_flags(char **args)
 			return(1);
 		}
 		else if(ft_strcmp(args[i], "setenv") == 0){
-			return(ft_setenv(args));
+			return(ft_setenv(args + 1));
+		}
+		else if(ft_strcmp(args[i], "unsetenv") == 0){
+			return(ft_unsetenv(args + 1));
 		}
 		else if(bin_com(args))
 		{

@@ -25,12 +25,13 @@ int ec_echo( char **args, int i);
 //environmnet
 void    get_env(char **env);
 int     env_len(char **env);
-void     print_env();
+void    print_env();
 int     ft_setenv(char **args);
-void   setenv_var(char *key, char *value);
-void ft_envVariable(char *name, char *new_value);
-char      **ft_renew_env(int re);
+void    setenv_var(char *key, char *value);
+void    ft_envVariable(char *name, char *new_value);
+char    **ft_renew_env(int renew,char *key,char *value);
 int     env_position(char *name);
+int     ft_unsetenv(char **args);
 
 //free
 void    free_env(char **env);
