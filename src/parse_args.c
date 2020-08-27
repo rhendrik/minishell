@@ -10,7 +10,7 @@ int val_flags(char **args)
 
 	i=0;
 	while(args[i][0] != 0)
-	{
+	{	
 		if(ec_echo(args, i))
 			return (1);
 		else if (ft_strcmp(args[i], "cd") == 0)
@@ -111,7 +111,7 @@ int ec_echo( char **args, int i)
 	j = 1;
 	k = 0;
 	(void)k;
-
+	
 	if(ft_strcmp(args[i], "echo") == 0)
 	{
 		if(args[i + 1] != NULL)

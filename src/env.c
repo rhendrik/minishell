@@ -137,23 +137,23 @@ void setenv_var(char *key, char *value)
     free(tmp);
 }
 
-static void     ft_remove_env(int pos){
+static void  ft_remove_env(int pos){
 
-    printf("hello 1");
     int x = 0;
     int count;
     char **new_env;
 
+    free(global_env[pos]);
     count = pos + 1;
     while(global_env[pos + 1]){
-        printf("hello 1");
         global_env[pos] = ft_strdup(global_env[pos + 1]);
+        free(global_env[pos + 1]);
+        count++;
         pos++;
     }
-            printf("hello 2");
 
+    count = count - 1;
     new_env = (char **)ft_memalloc(sizeof(char *) * (count + 1));
-            printf("hello 3");
 
     while (global_env[++x] && x < count)
     {
@@ -174,8 +174,10 @@ int ft_unsetenv(char **args){
     }
     while(args[++x]){
         pos = env_position(args[x]);
-        if (global_env[pos])
+        if (global_env[pos]){
             ft_remove_env(pos);
+        }
     }
     return (1);
 }
+
