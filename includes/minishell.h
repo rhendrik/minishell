@@ -32,9 +32,13 @@ void    ft_envVariable(char *name, char *new_value);
 char    **ft_renew_env(int renew,char *key,char *value);
 int     env_position(char *name);
 int     ft_unsetenv(char **args);
+char    *ft_getenv(char *key);
+int     ft_is_wspc(char c);
+
 
 //free
 void    free_env(char **env);
 int     env_position(char *name);
+char	*ft_strjoinchf(char *str, char c);
 
 #endif

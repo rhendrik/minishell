@@ -24,16 +24,15 @@ int env_len(char **env)
     return (x);
 }
 
-int start_with(char *s1, char *s2)
+int start_with(char *to_start, char *str)
 {
 
-    int i;
+	int		i;
 
-    i = -1;
-    while (s2[++i])
-        if (s1[i] != s2[i])
-            return (0);
-    return (1);
+	i = 0;
+	while (to_start[i] && str[i] && (to_start[i] == str[i]))
+		i++;
+	return (to_start[i] == '\0' ? 1 : 0);
 }
 
 void print_env()
@@ -109,7 +108,24 @@ int env_position(char *name)
     free(tmp);
     return (x);
 }
+char		*ft_getenv(char *key)
+{
+	int		i;
+	char	*temp;
 
+	i = 0;
+	temp = ft_strjoin(key, "=");
+	while (global_env[++i])
+	{
+		if (start_with(temp, global_env[i]))
+		{
+			free(temp);
+			return (ft_strchr(global_env[i], '=') + 1);
+		}
+	}
+	free(temp);
+	return (NULL);
+}
 void setenv_var(char *key, char *value)
 {
 
@@ -144,6 +160,7 @@ static void  ft_remove_env(int pos){
     char **new_env;
 
     free(global_env[pos]);
+    global_env[pos] = NULL;
     count = pos + 1;
     while(global_env[pos + 1]){
         global_env[pos] = ft_strdup(global_env[pos + 1]);
