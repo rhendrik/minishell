@@ -25,10 +25,21 @@ int ec_echo( char **args, int i);
 //environmnet
 void    get_env(char **env);
 int     env_len(char **env);
+void    print_env();
+int     ft_setenv(char **args);
+void    setenv_var(char *key, char *value);
+void    ft_envVariable(char *name, char *new_value);
+char    **ft_renew_env(int renew,char *key,char *value);
+int     env_position(char *name);
+int     ft_unsetenv(char **args);
+char    *ft_getenv(char *key);
+int     ft_is_wspc(char c);
+
 void     print_env();
 
 //free
 void    free_env(char **env);
 int     env_position(char *name);
+char	*ft_strjoinchf(char *str, char c);
 
 #endif

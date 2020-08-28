@@ -3,7 +3,7 @@
 
 void print_prompt(void)
 {
-	ft_putstr("i hate u: ");
+	ft_putstr("$> ");
 }
 
 void mini_loop(void)

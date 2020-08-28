@@ -1,5 +1,4 @@
 #include "../includes/minishell.h"
-
 int ft_is_wspc(char c)
 {
 	if (c == ' ')
