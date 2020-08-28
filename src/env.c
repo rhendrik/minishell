@@ -35,6 +35,16 @@ int start_with(char *to_start, char *str)
 	return (to_start[i] == '\0' ? 1 : 0);
 }
 
+int		ft_strstartswith(char *s1, char *s2)
+{
+	int	x = -1;
+
+	while (s2[++x])
+		if (s1[x] != s2[x])
+			return (0);
+	return (1);
+}
+
 void print_env()
 {
 
@@ -99,7 +109,7 @@ int env_position(char *name)
     x = 0;
     while (global_env[++x])
     {
-        if (start_with(global_env[x], tmp))
+        if (ft_strstartswith(global_env[x], tmp))
         {
             free(tmp);
             return (x);
