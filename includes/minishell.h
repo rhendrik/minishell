@@ -35,6 +35,7 @@ int     ft_unsetenv(char **args);
 char    *ft_getenv(char *key);
 int     ft_is_wspc(char c);
 
+void     print_env();
 
 //free
 void    free_env(char **env);

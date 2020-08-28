@@ -16,7 +16,15 @@ int val_flags(char **args)
 		if (ec_echo(args, i))
 			return (1);
 		else if (ft_strcmp(args[i], "cd") == 0)
-			chdir(args[i + 1]);
+		{
+			if(chdir(args[1]) == 0)
+				return (1);
+			else
+			{
+				ft_putstr("Error\n");
+				return(1);
+			}
+		}
 		else if (ft_strcmp(args[i], "pwd") == 0)
 		{
 			ft_putendl(getcwd(cwd, sizeof(cwd)));
